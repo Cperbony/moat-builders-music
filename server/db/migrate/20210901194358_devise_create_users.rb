@@ -9,10 +9,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :first_name
       t.string :last_name
       t.string :image_url
-      t.string :session_token, null: false
+      t.string :session_token #, null: false
 
-      t.string :password_digest, null: false
-      t.string :encrypted_password, null: false
+      t.string :password #, null: false
+      t.string :encrypted_password #, null: false
 
       ## Recoverable
       t.string   :reset_password_token
@@ -44,7 +44,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
 
     add_index :users, :username, unique: true
     add_index :users, :email, unique: true
-    add_index :users, :session_token, unique: true
+    # add_index :users, :session_token, unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true

@@ -25,7 +25,7 @@ services:
     links:
       - db
   db:
-    image: postgres:12-alpine
+    image: postgres:12.1
     container_name: dbmoat_builder_music
     restart: unless-stopped
     ports:
@@ -35,10 +35,10 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=moat_builder_music
       - TZ=America/Sao_Paulo
-    volumes:
-      - moat_builder_music:/var/lib/postgresql/data
+    # volumes:
+    #   - moat_builder_music:/var/lib/postgresql/data
 volumes:
-  moat_builder_music:
-  dbmoat_builder_music:
+  # moat_builder_music:
+  # dbmoat_builder_music:
   cache:
   
