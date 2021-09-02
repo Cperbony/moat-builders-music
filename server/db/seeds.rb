@@ -14,7 +14,7 @@ end
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   email = "#{first_name}_#{last_name}@#{%w[gmail yahoo hotmail].sample}.com"
-  username = "#{first_name}+#{last_name}"
+  username = "#{first_name}".concat(" #{last_name}")
 
   User.create!(
     username: username,
