@@ -6,7 +6,7 @@ if [ -z "${ENVIRONMENT}" ]; then
     echo "Variável CORE_BASE: ${CORE_BASE}"
 
     echo "> Install Webpacker"
-    bundle exec rails webpacker:install
+    # bundle exec rails webpacker:install
 
     echo "> Migrating Database"
     bundle exec rake db:prepare
