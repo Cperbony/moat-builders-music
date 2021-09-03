@@ -20,7 +20,7 @@ class User < ApplicationRecord
             presence: { message: 'Password cannot be blank' }
   validates :session_token, presence: true
 
-  def self.find_by_credentials(username, _passwords)
+  def self.find_by_credentials(username, password)
     user ||= User.where(username: username, email: username)
 
     user && user&.valid_password?(password) ? user : nil
