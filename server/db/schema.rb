@@ -42,12 +42,12 @@ ActiveRecord::Schema.define(version: 2021_09_02_145917) do
   end
 
   create_table "playlist_songs", force: :cascade do |t|
-    t.bigint "song_id_id", null: false
-    t.bigint "playlist_id_id", null: false
+    t.bigint "song_id", null: false
+    t.bigint "playlist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["playlist_id_id"], name: "index_playlist_songs_on_playlist_id_id"
-    t.index ["song_id_id"], name: "index_playlist_songs_on_song_id_id"
+    t.index ["playlist_id"], name: "index_playlist_songs_on_playlist_id"
+    t.index ["song_id"], name: "index_playlist_songs_on_song_id"
   end
 
   create_table "playlists", force: :cascade do |t|
@@ -59,14 +59,14 @@ ActiveRecord::Schema.define(version: 2021_09_02_145917) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "title"
+    t.string "title", default: "Untitled", null: false
     t.integer "order"
     t.text "lyrics"
     t.string "song_url"
-    t.bigint "album_id_id", null: false
+    t.bigint "album_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["album_id_id"], name: "index_songs_on_album_id_id"
+    t.index ["album_id"], name: "index_songs_on_album_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,9 +75,8 @@ ActiveRecord::Schema.define(version: 2021_09_02_145917) do
     t.string "first_name"
     t.string "last_name"
     t.string "image_url"
+    t.string "password_digest"
     t.string "session_token"
-    t.string "password"
-    t.string "encrypted_password"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

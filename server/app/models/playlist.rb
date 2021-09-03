@@ -6,5 +6,5 @@ class Playlist < ApplicationRecord
   has_many :playlist_follows, dependent: :destroy
   has_many :followers, through: :playlist_follows, source: :user
 
-  validates :user_id, null: false
+  # validates :user_id, null: false, dependent: :destroy
 end
